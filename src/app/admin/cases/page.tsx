@@ -15,7 +15,7 @@ export default async function AdminCasesPage({
 }: {
   searchParams?: SearchParams;
 }) {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const { data: cases } = await supabase
     .from("cases")
     .select("*")
@@ -73,7 +73,7 @@ export default async function AdminCasesPage({
             <div className="mt-2">
               <ImageUploader
                 bucket="case-images"
-                prefix={`cases/${Date.now()}`}
+                prefix="cases"
                 name="image_paths"
                 maxFiles={5}
               />

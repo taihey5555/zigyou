@@ -4,7 +4,7 @@
 
 -- admin emails (add your real admin email)
 INSERT INTO admin_emails (email) VALUES
-  ('admin@example.com')
+  ('sutepun3@gmail.com')
 ON CONFLICT (email) DO NOTHING;
 
 -- areas (23ku east/west + tama)

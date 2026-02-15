@@ -10,10 +10,10 @@ function requireEnv(name: string) {
   return value;
 }
 
-export function createSupabaseServerClient() {
+export async function createSupabaseServerClient() {
   const url = requireEnv("NEXT_PUBLIC_SUPABASE_URL");
   const anonKey = requireEnv("NEXT_PUBLIC_SUPABASE_ANON_KEY");
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
 
   return createServerClient(url, anonKey, {
     cookies: {

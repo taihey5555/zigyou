@@ -13,7 +13,7 @@ function getStringArray(formData: FormData, key: string) {
 }
 
 export async function createCase(formData: FormData) {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const type = getString(formData, "type") as "kagu" | "airport";
   const title = getString(formData, "title");
   const body = getString(formData, "body");

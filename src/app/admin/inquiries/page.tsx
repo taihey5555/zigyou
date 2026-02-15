@@ -19,7 +19,7 @@ export default async function AdminInquiriesPage({
 }: {
   searchParams?: SearchParams;
 }) {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   let query = supabase
     .from("inquiries")
     .select("id,type,name,status,created_at,estimated_price")

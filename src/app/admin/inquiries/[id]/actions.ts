@@ -14,7 +14,7 @@ export async function updateInquiry(id: string, formData: FormData) {
   const estimated_price = getString(formData, "estimated_price");
   const final_price = getString(formData, "final_price");
 
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   await supabase
     .from("inquiries")
     .update({

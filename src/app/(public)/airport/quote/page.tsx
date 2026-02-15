@@ -99,7 +99,7 @@ export default function AirportQuotePage({ searchParams }: PageProps) {
           <div className="mt-4">
             <ImageUploader
               bucket="inquiry-photos"
-              prefix={`airport/${Date.now()}`}
+              prefix="airport"
               name="photo_paths"
               maxFiles={5}
             />

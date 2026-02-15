@@ -2,8 +2,6 @@ import { Resend } from "resend";
 import { QuoteReceivedCustomerEmail } from "@/lib/email/templates/quote-received-customer";
 import { QuoteReceivedAdminEmail } from "@/lib/email/templates/quote-received-admin";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export type InquiryEmailData = {
   type: "kagu" | "airport";
   name: string;
@@ -25,8 +23,10 @@ function requireEmailEnv(name: string) {
 }
 
 export async function sendInquiryEmails(data: InquiryEmailData) {
+  const resendApiKey = requireEmailEnv("RESEND_API_KEY");
   const from = requireEmailEnv("FROM_EMAIL");
   const adminEmail = requireEmailEnv("ADMIN_EMAIL");
+  const resend = new Resend(resendApiKey);
 
   const subjectUser =
     data.type === "kagu"

@@ -114,7 +114,7 @@ export default function KaguQuotePage({ searchParams }: PageProps) {
           <div className="mt-4">
             <ImageUploader
               bucket="inquiry-photos"
-              prefix={`kagu/${Date.now()}`}
+              prefix="kagu"
               name="photo_paths"
               maxFiles={5}
             />

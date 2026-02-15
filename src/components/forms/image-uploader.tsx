@@ -19,7 +19,6 @@ type Props = {
 export function ImageUploader({ bucket, prefix, name, maxFiles = 5 }: Props) {
   const [uploads, setUploads] = useState<UploadedFile[]>([]);
   const [loading, setLoading] = useState(false);
-  const supabase = createSupabaseBrowserClient();
 
   async function handleSelectFiles(files: FileList | null) {
     if (!files) return;
@@ -48,6 +47,7 @@ export function ImageUploader({ bucket, prefix, name, maxFiles = 5 }: Props) {
     const data = (await res.json()) as {
       uploads: Array<{ path: string; token: string }>;
     };
+    const supabase = createSupabaseBrowserClient();
 
     const nextUploads: UploadedFile[] = [];
     for (let i = 0; i < data.uploads.length; i += 1) {

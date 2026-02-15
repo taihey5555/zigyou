@@ -17,7 +17,7 @@ export default async function AdminInquiryDetailPage({
   params,
   searchParams,
 }: Props) {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const { data } = await supabase
     .from("inquiries")
     .select("*")
